@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function BreadCrumb({ pageName, linkName }: any) {
@@ -6,7 +7,10 @@ export default function BreadCrumb({ pageName, linkName }: any) {
       <section className="relative py-2 px-4 before:absolute  before:top-0 before:left-0 before:h-full before:w-full before:-z-10 ">
         <div className=" relative z-30 top-11  rounded-2xl">
           <div className="container  flex items-center justify-start  px-4 py-6 mx-auto overflow-x-auto whitespace-nowrap">
-            <a href="/" className=" flex items-center text-gray-500 font-bold">
+            <Link
+              href="/"
+              className=" flex items-center text-gray-500 font-bold"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-5 h-5"
@@ -16,7 +20,7 @@ export default function BreadCrumb({ pageName, linkName }: any) {
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
               </svg>
               <span className="mx-2">Home</span>
-            </a>
+            </Link>
 
             <span className=" text-gray-500  rtl:-scale-x-100">
               <svg

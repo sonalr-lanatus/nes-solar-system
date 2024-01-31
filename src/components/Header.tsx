@@ -44,7 +44,7 @@ function Header() {
           }   `}
         >
           <div className="lg:contents">
-            <a
+            <Link
               href="/"
               className="flex items-center space-x-3 rtl:space-x-reverse m-auto "
             >
@@ -53,7 +53,7 @@ function Header() {
                 className="w-36"
                 alt="solar logo"
               />
-            </a>
+            </Link>
           </div>
 
           <div

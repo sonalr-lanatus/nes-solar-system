@@ -155,12 +155,12 @@ export default function Footer() {
 
                 <ul className="mt-4 space-y-2 text-sm">
                   <li>
-                    <a
+                    <Link
                       className="font-white transition hover:text-gray-700/75"
                       href="/SolarPlanningInstallation"
                     >
                       Solar EPC
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
@@ -173,12 +173,12 @@ export default function Footer() {
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       className="font-white transition hover:text-gray-700/75"
                       href="/SolarOperationAndMaintenance"
                     >
                       Solar O&M
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -235,37 +235,37 @@ export default function Footer() {
 
                 <ul className="mt-4 space-y-2 text-sm">
                   <li>
-                    <a
+                    <Link
                       className="font-white transition hover:text-gray-700/75"
                       href="/About"
                     >
                       Why Us
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
+                    <Link
                       className="font-white transition hover:text-gray-700/75"
                       href="/OurTeam"
                     >
                       Team
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="font-white transition hover:text-gray-700/75"
                       href="/Projects"
                     >
                       Projects
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       className="font-white transition hover:text-gray-700/75"
                       href="/Awards"
                     >
                       Awards
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
