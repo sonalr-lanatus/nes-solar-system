@@ -1,0 +1,513 @@
+.main-project-area {
+  position: relative;
+  display: block;
+  background: #ffffff;
+  padding: 100px 0 100px;
+}
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.col,
+.col-1,
+.col-10,
+.col-11,
+.col-12,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-auto,
+.col-lg,
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-auto,
+.col-md,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-auto,
+.col-sm,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-auto,
+.col-xl,
+.col-xl-1,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-auto {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.single-project-style3.marbtm30 {
+  margin-bottom: 30px;
+}
+
+.single-project-style3 {
+  position: relative;
+  display: block;
+}
+.single-project-style3 .img-holder {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.single-project-style3 .img-holder img {
+  width: 100%;
+  transform: scale(1.01);
+  transition: all 700ms ease;
+}
+.single-project-style3 .overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: rgba(32, 53, 96, 0.9);
+  transform: scaleX(0);
+  transition: all 700ms ease 100ms;
+}
+.single-project-style3 .overlay-content .inner-content {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.single-project-style3 .overlay-content .inner-content .title-box {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  transform: scale(0);
+  transition: all 700ms ease 500ms;
+}
+.single-project-style3 .overlay-content .inner-content .title-box h3 a {
+  color: #ffffff;
+  transition: all 500ms ease;
+}
+.single-project-style3 .overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: rgba(32, 53, 96, 0.9);
+  transform: scaleX(0);
+  transition: all 700ms ease 100ms;
+}
+.single-project-style3 .overlay-content .inner-content {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.single-project-style3 .overlay-content .inner-content .title-box {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  transform: scale(0);
+  transition: all 700ms ease 500ms;
+}
+.single-project-style3 .overlay-content .inner-content .title-box h3 {
+  margin: 0 0 8px;
+}
+@media (min-width: 1200px) {
+  .col-xl-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+.single-project-style3 {
+  position: relative;
+  display: block;
+}
+
+.single-project-style3.marbtm30 {
+  margin-bottom: 30px;
+}
+
+.single-project-style3 .img-holder {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.single-project-style3 .img-holder img {
+  width: 100%;
+  transform: scale(1.01);
+  transition: all 700ms ease;
+}
+
+.single-project-style3:hover .img-holder img {
+  transform: scale(1.2) rotate(2deg);
+}
+
+.single-project-style3 .overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: rgba(32, 53, 96, 0.9);
+  transform: scaleX(0);
+  transition: all 700ms ease 100ms;
+}
+
+.single-project-style3:hover .overlay-content {
+  transform: scaleY(1);
+}
+
+.single-project-style3 .overlay-content .inner-content {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.single-project-style3 .overlay-content .inner-content .title-box {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  transform: scale(0);
+  transition: all 700ms ease 500ms;
+}
+
+.single-project-style3:hover .overlay-content .inner-content .title-box {
+  transform: scale(1);
+}
+
+.single-project-style3 .overlay-content .inner-content .title-box h3 {
+  margin: 0 0 8px;
+}
+
+.single-project-style3 .overlay-content .inner-content .title-box h3 a {
+  color: #ffffff;
+  transition: all 500ms ease;
+}
+
+.single-project-style3 .overlay-content .inner-content .title-box h3 a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.single-project-style3 .overlay-content .inner-content .title-box span {
+  color: #3398fd;
+  font-weight: 500;
+}
+
+.main-project-area.v3 .post-pagination {
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 26px;
+}
+.card-textL {
+  color: #232323;
+  font-weight: 600;
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  font-size: 1.4rem;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #232323;
+}
+.single-project-style3 .overlay-content .inner-content .title-box h3 a {
+  color: #ffffff;
+  transition: all 500ms ease;
+}
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 700px) {
+  .container {
+    width: 100%;
+  }
+
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* .container .box {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  margin: 4rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container .box:hover .imgBox {
+  transform: translate(-3.5rem, -3.5rem);
+}
+
+.container .box:hover .content {
+  transform: translate(3.5rem, 3.5rem);
+} */
+
+.imgBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+}
+
+.imgBox img {
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  resize: both;
+}
+
+/* .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  background-color: #c91313;
+  z-index: 1;
+  align-items: flex-end;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+} */
+
+.content h2 {
+  display: block;
+  font-size: 2rem;
+  color: #111;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: 1px;
+}
+
+.content span {
+  color: #555;
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 600px) {
+  .container .box:hover .content {
+    transform: translate(0, 3.5rem);
+  }
+  .container .box:hover .imgBox {
+    transform: translate(0, -3.5rem);
+  }
+}
+
+.box-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 0;
+}
+
+.widget-container {
+  transition: all 0.3s ease;
+}
+
+.widget-container .common-flip-style {
+  width: 40vh;
+  height: 40vh;
+  cursor: pointer;
+}
+
+.widget-container .common-flip-style .common-box-style {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.6s ease-in-out;
+  -o-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  border-radius: 10px;
+  border: 5px solid #002f63;
+  box-shadow: rgba(16, 33, 62, 0.4) 5px 5px, rgba(16, 33, 62, 0.3) 10px 10px,
+    rgba(16, 33, 62, 0.2) 15px 15px, rgba(16, 33, 62, 0.1) 20px 20px,
+    rgba(16, 33, 62, 0.05) 25px 25px;
+}
+
+.flip-box {
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.flip-box .box-front {
+  transform: none;
+  z-index: 1;
+  background-image: url("/assets/Projects/civil work/IMG-20170819-WA0004.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.box-front2 {
+  transform: none;
+  z-index: 1;
+  background-image: url("/assets/Projects/Mounting structure Installation/20201231_125419.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.box-front3 {
+  transform: none;
+  z-index: 1;
+  background-image: url("/assets/Projects/cleaning system/dsc04663.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.box-front4 {
+  transform: none;
+  z-index: 1;
+  background-image: url("/assets/Projects/dispatch delivery practice/3.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.box-front5 {
+  transform: none;
+  z-index: 1;
+  background-image: url("/assets/Projects/electrical work/projects-40920220123.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.box-front6 {
+  transform: none;
+  z-index: 1;
+  background-image: url("/assets/Projects/Rooftop solar installations/DSC04626 (1).jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.flip-box .box-back {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  transform: rotateX(0) rotateY(-180deg);
+  background: #fff;
+  border: 5px solid #002f63;
+  background-image: url("/assets/Projects/blob-scene-haikei.svg");
+  background-repeat: no-repeat;
+}
+
+.flip-box:hover .box-front {
+  transform: rotateX(0) rotateY(180deg);
+}
+.flip-box:hover .box-front2 {
+  transform: rotateX(0) rotateY(180deg);
+}
+.flip-box:hover .box-front3 {
+  transform: rotateX(0) rotateY(180deg);
+}
+.flip-box:hover .box-front4 {
+  transform: rotateX(0) rotateY(180deg);
+}
+.flip-box:hover .box-front5 {
+  transform: rotateX(0) rotateY(180deg);
+}
+.flip-box:hover .box-front6 {
+  transform: rotateX(0) rotateY(180deg);
+}
+
+.flip-box:hover .box-back {
+  transform: none;
+}
+
+.box-content-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  text-align: center;
+  transform: translateZ(90px);
+}
