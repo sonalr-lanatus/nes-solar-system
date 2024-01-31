@@ -1,5 +1,4 @@
 import React from "react";
-import "../CivilWork/CivilWork.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import HeroImageSection from "@/components/common/HeroImageSection";
 import BreadCrumb from "@/components/common/BreadCrumb";

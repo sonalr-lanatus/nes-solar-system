@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import AOS from "aos";
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -11,6 +11,22 @@ export default function ScrollToTop() {
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    // Button is displayed after scrolling for 500 pixels
+    const toggleVisibility = () => {
+      AOS.refresh();
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
 
   return (
     <div className="fixed bottom-8 right-5 z-[99]">

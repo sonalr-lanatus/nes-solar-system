@@ -1,6 +1,4 @@
 import React from "react";
-import "../../../../app/globals.css";
-import "../CivilWork/CivilWork.css";
 import MultipleImageComponent from "@/components/common/MultipleImageComponent";
 import ScrollToTop from "@/components/ScrollToTop";
 import HeroImageSection from "@/components/common/HeroImageSection";

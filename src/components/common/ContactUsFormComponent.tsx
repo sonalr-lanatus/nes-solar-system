@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { TextInput } from "./TextInput";
-import "../../../app/globals.css";
 import { FormProvider, useForm } from "react-hook-form";
 import { InputLabel } from "@mui/material";
 import { Button } from "./Button";
