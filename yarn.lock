@@ -3094,6 +3094,11 @@ react-hook-form@^7.49.0:
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.49.3.tgz"
   integrity sha512-foD6r3juidAT1cOZzpmD/gOKt7fRsDhXXZ0y28+Al1CHgX+AY1qIN9VSIIItXRq1dN68QrRwl1ORFlwjBaAqeQ==
 
+react-hotjar@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.npmjs.org/react-hotjar/-/react-hotjar-6.2.0.tgz"
+  integrity sha512-uMX2IS5IKt1VkhHPwl2QEAEUmmm6VyxfzlwHLUKTQGZoE/0HWD71iGA7T31PO3KeN9+XUsTJS2P3zHva6TyhrQ==
+
 react-is@^16.13.1, react-is@^16.7.0, "react-is@^16.8.0 || ^17.0.0":
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
