@@ -1560,3 +1560,10 @@ label {
   padding-right: 15px;
   padding-left: 15px;
 }
+@media (min-width: 1200px) {
+  .col-xl-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}

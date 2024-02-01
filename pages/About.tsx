@@ -72,7 +72,7 @@ export default function About() {
       <section className="relative block pt-14 pr-0 pl-0 pb-12">
         <div className="container mx-auto">
           <div className="flex flex-wrap -mr-4 -ml-4">
-            <div className="relative w-full pr-4 pl-4 md:flex-1 max-w-4xl">
+            <div className="col-xl-6 relative w-full pr-4 pl-4 md:flex-1 max-w-4xl">
               <div className="relative block mt-2.5">
                 <img
                   src="../assets/About/about-image-59220220128.jpg"
@@ -87,7 +87,7 @@ export default function About() {
                 />
               </div>
             </div>
-            <div className="relative w-full pr-4 pl-4 md:flex-1 max-w-4xl">
+            <div className="col-xl-6 relative w-full pr-4 pl-4 md:flex-1 max-w-4xl">
               <div className="relative block mt-12">
                 <div className="relative block">
                   <div className="table-cell align-middle">
