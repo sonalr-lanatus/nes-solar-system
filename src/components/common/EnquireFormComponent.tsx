@@ -15,7 +15,7 @@ import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import { TextInput } from "./TextInput";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-export default function EnquireFormComponent({ title, setOpen }: any) {
+export default function EnquireFormComponent({ title, setOpen, id }: any) {
   const [selectFile, setSelectFile] = useState([]);
   const [documentSizeError, setDocumentSizeError] = useState(false);
 
@@ -48,6 +48,7 @@ export default function EnquireFormComponent({ title, setOpen }: any) {
     setDocumentSizeError(false);
     setSelectFile(event?.target?.files?.[0]);
   };
+
   return (
     <>
       <Container>
@@ -56,8 +57,7 @@ export default function EnquireFormComponent({ title, setOpen }: any) {
             <Box
               sx={{
                 backgroundColor: "white",
-                minWidth: "500px",
-                marginTop: "80px",
+                marginTop: "30px",
                 color: "#203F69",
                 boxShadow: "0 5px 50px rgb(0 0 0 / 10%)",
                 height: "50%",
@@ -87,7 +87,7 @@ export default function EnquireFormComponent({ title, setOpen }: any) {
                   </IconButton>
                 </Grid>
 
-                <Grid item xs={3}>
+                <Grid item xs={12} sm={6} md={3}>
                   <Grid
                     item
                     xs={12}
@@ -111,7 +111,7 @@ export default function EnquireFormComponent({ title, setOpen }: any) {
                     />
                   </Grid>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={12} sm={6} md={3}>
                   <Grid
                     item
                     xs={12}
@@ -135,7 +135,7 @@ export default function EnquireFormComponent({ title, setOpen }: any) {
                     />
                   </Grid>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={12} sm={6} md={3}>
                   <Grid
                     item
                     xs={12}
@@ -157,7 +157,7 @@ export default function EnquireFormComponent({ title, setOpen }: any) {
                     />
                   </Grid>
                 </Grid>
-                <Grid item xs={3} mt={4}>
+                <Grid item xs={12} mt={4} sm={6} md={3}>
                   <Grid item xs={12} sx={{ alignItems: "center" }}>
                     <Button
                       variant="outlined"

@@ -16,8 +16,8 @@ export default function Projects() {
       <section className="main-project-area v3">
         <div className="container">
           <div className="row">
-            <div className="grid grid-rows-4 grid-flow-col gap-4 md:grid-cols-3 sm:grid-cols-2">
-              <div className=" filter-item env res">
+            <div className="grid gap-x-40 gap-y-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+              <div className="filter-item env res">
                 <div className="single-project-style3 mb-32">
                   <div className="widget-container">
                     <div className="flip-box common-flip-style">
@@ -37,8 +37,8 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-              <div className=" filter-item env res">
-                <div className="single-project-style3 marbtm30">
+              <div className="filter-item env res">
+                <div className="single-project-style3 mb-32">
                   <div className="widget-container">
                     <div className="flip-box common-flip-style">
                       <div className="box-front2 common-box-style">
@@ -59,8 +59,8 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-              <div className=" filter-item env res">
-                <div className="single-project-style3 marbtm30">
+              <div className="filter-item env res">
+                <div className="single-project-style3 mb-32">
                   <div className="widget-container">
                     <div className="flip-box common-flip-style">
                       <div className="box-front3 common-box-style">
@@ -79,8 +79,8 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-              <div className=" filter-item env res">
-                <div className="single-project-style3 marbtm30">
+              <div className="filter-item env res">
+                <div className="single-project-style3 mb-32">
                   <div className="widget-container">
                     <div className="flip-box common-flip-style">
                       <div className="box-front4 common-box-style">
@@ -101,8 +101,8 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-              <div className=" filter-item env res">
-                <div className="single-project-style3 marbtm30">
+              <div className="filter-item env res">
+                <div className="single-project-style3 mb-32">
                   <div className="widget-container">
                     <div className="flip-box common-flip-style">
                       <div className="box-front5 common-box-style">
@@ -122,7 +122,7 @@ export default function Projects() {
                 </div>
               </div>
               <div className=" filter-item env res">
-                <div className="single-project-style3 marbtm30">
+                <div className="single-project-style3 mb-32">
                   <div className="widget-container">
                     <div className="flip-box common-flip-style">
                       <div className="box-front6 common-box-style">

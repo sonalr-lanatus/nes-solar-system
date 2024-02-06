@@ -293,7 +293,7 @@ a:focus {
   margin-top: -30px;
 } */
 
-button {
+.buttonConsult {
   margin-top: 10px;
   width: 150px;
   height: 40px;
@@ -306,7 +306,7 @@ button {
   border-radius: 50px;
 }
 
-button:hover {
+.buttonConsult:hover {
   transition: 0.5s;
   color: #000;
   background: #fff;

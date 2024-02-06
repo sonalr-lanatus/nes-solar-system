@@ -31,6 +31,11 @@ function Hero() {
     const interactedTile = event.target.outerText;
 
     setFormTitle(interactedTile);
+
+    if (interactedTile) {
+      window.scrollTo(0, 300);
+    }
+
     setTiles((prev: any) =>
       prev.map((tile: any) => {
         if (tile.label !== interactedTile) {
@@ -57,7 +62,7 @@ function Hero() {
         <div className="container">
           <div className="flex flex-col py-16 lg:h-[65vh] lg:justify-end lg:pb-12 ">
             <div
-              className={`absolute top-20 md:top-24 max-sm:top-24 ${
+              className={`absolute top-20 md:top-20 max-sm:top-24 ${
                 stickyHeader && ""
               } left-0 h-[95vh] w-full md:h-[60vh] sm:h-[70vh]  lg:h-[100vh]`}
             >
@@ -109,28 +114,34 @@ function Hero() {
           <div className="container">
             <div
               className={` my-5 md:relative sm:relative max-sm:relative max-sm:mt-36  px-4 md:px-12 items-center  w-fit absolute mx-auto grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 justify-items-center justify-center gap-y-20 gap-x-20 -mt-10 mb-5 ${
-                stickyHeader ? "md:mt-20 max-sm:mt-64" : "md:-mt-3"
+                stickyHeader ? "md:mt-20 max-sm:mt-52" : "md:-mt-3"
               }`}
             >
-              {tiles.map((tile) => (
-                // eslint-disable-next-line react/jsx-key
-                <button
-                  onClick={(e) => {
-                    toggleDrawer(true, e);
-                  }}
-                  className="w-44 h-24  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
-                >
-                  <div className="px-4 py-6 w-44">
-                    <p className="text-lg text-center font-bold text-[#203F69] block capitalize">
-                      {tile.label}
-                    </p>
-                  </div>
-                </button>
-              ))}
+              {tiles.map(
+                (tile) =>
+                  // eslint-disable-next-line react/jsx-key
+                  !tile.hidden && (
+                    <button
+                      key={tile.label}
+                      onClick={(e) => {
+                        toggleDrawer(true, e);
+                      }}
+                      className="w-44 h-24  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
+                    >
+                      <div className="px-4 py-6 w-44">
+                        <p className="text-lg text-center font-bold text-[#203F69] block capitalize">
+                          {tile.label}
+                        </p>
+                      </div>
+                    </button>
+                  )
+              )}
             </div>
           </div>
           {open ? (
-            <EnquireFormComponent title={formTitle} setOpen={setOpen} />
+            <div id="DivIdToScroll">
+              <EnquireFormComponent title={formTitle} setOpen={setOpen} />
+            </div>
           ) : (
             ""
           )}

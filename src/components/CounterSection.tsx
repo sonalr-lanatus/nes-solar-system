@@ -39,8 +39,8 @@ export default function CounterSection() {
               </p>
               <div>
                 <a
-                  className="btn rounded font-medium overflow-hidden btn-primary text-white counter-joinBtn px-4 inline-flex items-center mt-3 lg:mb-0 mb-4"
-                  href="/careers"
+                  className="rounded font-medium overflow-hidden btn-primary text-white counter-joinBtn px-4 inline-flex items-center mt-3 lg:mb-0 mb-4"
+                  href="#"
                 >
                   Join Us
                   <svg
@@ -234,7 +234,7 @@ export default function CounterSection() {
                 <span style={{ transform: "none" }}></span>
                 <span className="text-primary">+</span>
               </div>
-              <div className=" font-medium text-base text-center uppercase text-white">
+              <div className="font-medium text-base text-center uppercase text-white">
                 Solar Panel Cleaned per Week
               </div>
             </div>

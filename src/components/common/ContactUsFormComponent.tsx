@@ -9,8 +9,31 @@ export default function ContactUsFormComponent() {
   const methods = useForm({});
   const [selectFile, setSelectFile] = useState([]);
   const [documentSizeError, setDocumentSizeError] = useState(false);
-  const saveData = (data: any) => {
+  const saveData = async (data: any) => {
     console.log("data", data);
+    const formData = new FormData();
+    formData.append("name", data.Name);
+    formData.append("email", data.Email);
+    formData.append("message", data.Details);
+    formData.append("message", data.Phone);
+    formData.append("message", data.Address);
+    // formData.append("file", selectFile);
+    try {
+      const response = await fetch("/api/contactForm", {
+        method: "POST",
+        body: formData,
+      });
+      console.log("response", response);
+
+      if (response.ok) {
+        console.log("Form submitted successfully");
+        // Optionally, you can redirect the user or show a success message
+      } else {
+        console.error("Failed to submit form");
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+    }
   };
   const handleChange = (event: any) => {
     const file = event?.target?.files?.[0];
@@ -73,8 +96,9 @@ export default function ContactUsFormComponent() {
                         label="Phone"
                         size="small"
                         iName="Phone"
-                        type="number"
+                        type="tel"
                         required={true}
+                        maxLength={10}
                       />
                       <div className="invalid-feedback"></div>
                     </div>

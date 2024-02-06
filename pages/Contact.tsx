@@ -38,11 +38,6 @@ export default function Contact() {
                       </div>
                       <div className="e_container-30 s_layout fa_tel_li response-transition">
                         <div className="cbox-30-0 p_item">
-                          <p className="e_text-33 s_title fa_icon response-transition">
-                            <i className="fa-brands fa-solid fa-tty  "></i>
-                          </p>
-                        </div>
-                        <div className="cbox-30-1 p_item">
                           <p className="e_text-31 s_title fa_tel_tt response-transition">
                             Tel
                           </p>
@@ -54,11 +49,11 @@ export default function Contact() {
                         </div>
                       </div>
                       <div className="e_container-34 s_layout fa_tel_li">
-                        <div className="cbox-34-0 p_item">
+                        {/* <div className="cbox-34-0 p_item">
                           <p className="e_text-37 s_title fa_icon">
                             <i className="fa-brands fa-solid fa-envelope "></i>
                           </p>
-                        </div>
+                        </div> */}
                         <div className="cbox-34-1 p_item">
                           <p className="e_text-35 s_title fa_tel_tt">Email</p>
                           <div className="e_richText-36 s_title fa_tel_cnt clearfix">
@@ -73,11 +68,11 @@ export default function Contact() {
                         </div>
                       </div>
                       <div className="e_container-29 s_layout fa_tel_li">
-                        <div className="cbox-29-0 p_item">
+                        {/* <div className="cbox-29-0 p_item">
                           <p className="e_text-40 s_title fa_icon">
                             <i className="fa-brands fa-solid fa-map-location"></i>
                           </p>
-                        </div>
+                        </div> */}
                         <div className="cbox-29-1 p_item">
                           <p className="e_text-38 s_title fa_tel_tt">Add</p>
                           <div className="e_richText-39 s_title fa_tel_cnt clearfix">

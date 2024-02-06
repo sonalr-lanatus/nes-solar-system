@@ -8,15 +8,18 @@ import "../pages/Projects/Projects.css";
 import "../pages/Projects/CivilWork/CivilWork.css";
 import "../pages/Awards/Awards.css";
 import RootLayout from "@/components/Layout";
+import GlobalContextProvider from "@/context/GlobalContextProvider";
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     hotjar.initialize(3848934, 6);
   }, []);
   return (
     <>
-      <RootLayout>
-        <Component {...pageProps} />
-      </RootLayout>
+      <GlobalContextProvider>
+        <RootLayout>
+          <Component {...pageProps} />
+        </RootLayout>
+      </GlobalContextProvider>
     </>
   );
 }

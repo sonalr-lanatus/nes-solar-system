@@ -55,7 +55,7 @@ export default function ConsultComponent() {
                 </span>
               </div>
               <div className="bottom-content pt-12">
-                <button className="btn ">
+                <button className="btn buttonConsult">
                   <Link
                     className=" wow slideInUp animated animated"
                     data-wow-delay="0ms"
