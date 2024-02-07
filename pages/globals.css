@@ -677,13 +677,13 @@
 }
 .btn-primary {
   color: white;
-  background-color: #002f63;
-  border-color: #002f63;
+  background-color: #002f63 !important;
+  border-color: #002f63 !important;
 }
 .btn-primary:hover {
   color: white;
   background-color: #002f63;
-  border-color: #002f63;
+  border-color: #002f63 !important;
 }
 .col-primary {
   background-image: linear-gradient(
