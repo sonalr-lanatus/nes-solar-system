@@ -676,12 +676,12 @@
   }
 }
 .btn-primary {
-  color: white;
+  color: white !important;
   background-color: #002f63 !important;
   border-color: #002f63 !important;
 }
 .btn-primary:hover {
-  color: white;
+  color: white !important;
   background-color: #002f63;
   border-color: #002f63 !important;
 }
