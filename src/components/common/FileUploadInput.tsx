@@ -25,9 +25,9 @@ export default function FileUploadInput({
   return (
     <>
       <Grid container sx={{ margin: "4px" }}>
-        {selectFile?.length !== 0 && selectFile && (
+        {selectFile && (
           <Chip
-            label={selectFile.name}
+            label={selectFile?.file?.name}
             sx={{
               color: "black",
               marginY: 0.5,
@@ -52,13 +52,7 @@ export default function FileUploadInput({
               onChange={handleFileUpload}
             />
             <FormLabel htmlFor="contained-button-file">
-              <Button
-                variant="contained"
-                component="span"
-                sx={{
-                  mt: 1,
-                }}
-              >
+              <Button variant="contained" component="span">
                 Upload
               </Button>
             </FormLabel>
@@ -69,7 +63,7 @@ export default function FileUploadInput({
             </Typography>
           )}
 
-          {selectFile?.length === 0 && (
+          {selectFile?.file?.length === undefined && (
             <Typography variant="inherit" color="error">
               {name in errors && `Please upload ${label} `}
             </Typography>

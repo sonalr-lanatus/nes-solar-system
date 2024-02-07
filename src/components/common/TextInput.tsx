@@ -26,6 +26,8 @@ export const TextInput = ({
   defaultValue,
   pattern,
   errorMessage,
+  inputMode,
+  patternInput,
 }: any) => {
   const {
     register,
@@ -50,7 +52,7 @@ export const TextInput = ({
             defaultValue={defaultValue}
             autoComplete="off"
             color={iName in errors ? "error" : null}
-            inputProps={{ maxLength }}
+            inputProps={{ maxLength, inputMode, pattern: patternInput }}
             multiline={multiline}
             rows={rows}
             sx={{ width: { width } }}

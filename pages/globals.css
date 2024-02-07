@@ -1567,3 +1567,6 @@ label {
     max-width: 50%;
   }
 }
+.custom-toast {
+  z-index: 270;
+}

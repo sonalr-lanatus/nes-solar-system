@@ -1,36 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TextInput } from "./TextInput";
 import { FormProvider, useForm } from "react-hook-form";
 import { InputLabel } from "@mui/material";
 import { Button } from "./Button";
 import FileUploadInput from "./FileUploadInput";
-
+import { sendContactForm } from "../../lib/api";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { GlobalContext } from "@/context/GlobalContextProvider";
+type SelectFileType = {
+  base64: string;
+  file: File;
+};
 export default function ContactUsFormComponent() {
   const methods = useForm({});
-  const [selectFile, setSelectFile] = useState([]);
+  const [selectFile, setSelectFile] = useState<SelectFileType | undefined>();
   const [documentSizeError, setDocumentSizeError] = useState(false);
   const saveData = async (data: any) => {
-    console.log("data", data);
-    const formData = new FormData();
-    formData.append("name", data.Name);
-    formData.append("email", data.Email);
-    formData.append("message", data.Details);
-    formData.append("message", data.Phone);
-    formData.append("message", data.Address);
-    // formData.append("file", selectFile);
+    const formData = {
+      ...data,
+      file: selectFile?.base64,
+      fileName: selectFile?.file.name,
+      fileType: selectFile?.file.type,
+    };
     try {
-      const response = await fetch("/api/contactForm", {
-        method: "POST",
-        body: formData,
-      });
-      console.log("response", response);
-
-      if (response.ok) {
-        console.log("Form submitted successfully");
-        // Optionally, you can redirect the user or show a success message
-      } else {
-        console.error("Failed to submit form");
-      }
+      await sendContactForm(formData);
+      toast.success("Form submitted successfully");
+      methods.reset();
+      setSelectFile(undefined);
     } catch (error) {
       console.error("Error submitting form", error);
     }
@@ -41,6 +38,17 @@ export default function ContactUsFormComponent() {
     if (!file) {
       return;
     }
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      // Convert image to Base64 string
+      if (reader.result) {
+        setSelectFile({
+          file: event?.target?.files?.[0],
+          base64: reader.result.toString(),
+        });
+      }
+    };
 
     // Check the image size
     const fileSizeInMB = file.size / (1024 * 1024); // Convert bytes to megabytes
@@ -50,10 +58,10 @@ export default function ContactUsFormComponent() {
     }
     setDocumentSizeError(false);
     setSelectFile(event?.target?.files?.[0]);
+    reader.readAsDataURL(file);
   };
   return (
     <div>
-      {" "}
       <div className="cbox-19-1 p_item">
         <FormProvider {...methods}>
           <form
@@ -61,6 +69,18 @@ export default function ContactUsFormComponent() {
             onSubmit={methods.handleSubmit(saveData)}
             method="post"
           >
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              pauseOnHover
+              draggable
+              draggablePercent={60}
+              closeButton={false}
+              style={{ zIndex: 9999 }}
+            />
             <div className="cbox-44-0 p_formItem">
               <p className="e_text-50 s_title response-transition">
                 Look forward to receiving your comments or feedback!
@@ -71,54 +91,50 @@ export default function ContactUsFormComponent() {
                   <label className="p_label">
                     <InputLabel className="s_label">Name</InputLabel>
                   </label>
-                  <div className="">
-                    <div className="input-group">
-                      <TextInput
-                        variant="outlined"
-                        label="Name"
-                        size="small"
-                        iName="Name"
-                        type="text"
-                        required={true}
-                      />
-                      <div className="invalid-feedback"></div>
-                    </div>
+                  <div className="input-group">
+                    <TextInput
+                      variant="outlined"
+                      label="Name"
+                      size="small"
+                      iName="Name"
+                      type="text"
+                      required={true}
+                    />
+                    <div className="invalid-feedback"></div>
                   </div>
                 </div>
                 <div className="e_clueMobile-47 s_form1 form-group response-transition">
                   <label className="p_label">
                     <InputLabel className="s_label">Phone Number</InputLabel>
                   </label>
-                  <div className="">
-                    <div className="input-group">
-                      <TextInput
-                        variant="outlined"
-                        label="Phone"
-                        size="small"
-                        iName="Phone"
-                        type="tel"
-                        required={true}
-                        maxLength={10}
-                      />
-                      <div className="invalid-feedback"></div>
-                    </div>
+                  <div className="input-group">
+                    <TextInput
+                      variant="outlined"
+                      label="Phone"
+                      size="small"
+                      iName="Phone"
+                      type="tel"
+                      required={true}
+                      maxLength={10}
+                      patternInput={"[0-9]*"}
+                      inputMode={"numeric"}
+                    />
+                    <div className="invalid-feedback"></div>
                   </div>
                 </div>
                 <div className="e_clueEmail-48 s_form1 form-group">
                   <label className="p_label">
                     <InputLabel className="s_label">Email</InputLabel>
                   </label>
-                  <div className="">
-                    <div className="input-group">
-                      <TextInput
-                        variant="outlined"
-                        label="Email"
-                        size="small"
-                        iName="Email"
-                        type="email"
-                        required={true}
-                      />
-                    </div>
+                  <div className="input-group">
+                    <TextInput
+                      variant="outlined"
+                      label="Email"
+                      size="small"
+                      iName="Email"
+                      type="email"
+                      required={true}
+                    />
                   </div>
                 </div>
                 <div className="e_clueEmail-48 s_form1 form-group">
@@ -127,37 +143,33 @@ export default function ContactUsFormComponent() {
                       Attach Light Bill
                     </InputLabel>
                   </label>
-                  <div className="">
-                    <div className="input-group">
-                      <FileUploadInput
-                        label="Attach electricity bill"
-                        name={"file"}
-                        required={true}
-                        handleFileUpload={handleChange}
-                        documentSizeError={documentSizeError}
-                        selectFile={selectFile}
-                        classes={undefined}
-                      />
-                    </div>
+                  <div className="input-group">
+                    <FileUploadInput
+                      label="light bill"
+                      name={"file"}
+                      required={true}
+                      handleFileUpload={handleChange}
+                      documentSizeError={documentSizeError}
+                      selectFile={selectFile}
+                      classes={undefined}
+                    />
                   </div>
                 </div>
                 <div className="e_clueEmail-48 s_form1 form-group">
                   <label className="p_label">
                     <InputLabel className="s_label">Address</InputLabel>
                   </label>
-                  <div className="">
-                    <div className="input-group">
-                      <TextInput
-                        multiline
-                        variant="outlined"
-                        label="Address"
-                        size="small"
-                        iName="Address"
-                        type="text"
-                        rows={4}
-                        required={true}
-                      />
-                    </div>
+                  <div className="input-group">
+                    <TextInput
+                      multiline
+                      variant="outlined"
+                      label="Address"
+                      size="small"
+                      iName="Address"
+                      type="text"
+                      rows={4}
+                      required={true}
+                    />
                   </div>
                 </div>{" "}
                 <div className="e_clueEmail-48 s_form1 form-group">
@@ -183,7 +195,7 @@ export default function ContactUsFormComponent() {
               <Button
                 variant="outlined"
                 type="submit"
-                className="e_formBtn-46 s_button1 btn btn-primary"
+                className="e_formBtn-46 s_button1 btn-primary"
                 label="Submit"
               ></Button>
             </div>
