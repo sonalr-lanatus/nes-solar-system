@@ -14,23 +14,38 @@ import FileUploadInput from "./FileUploadInput";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import { TextInput } from "./TextInput";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { sendEnquiryForm } from "@/lib/api";
+import { ToastContainer, toast } from "react-toastify";
 
+type SelectFileType = {
+  base64: string;
+  file: File;
+};
 export default function EnquireFormComponent({ title, setOpen, id }: any) {
-  const [selectFile, setSelectFile] = useState([]);
+  const methods = useForm({});
+  const [selectFile, setSelectFile] = useState<SelectFileType | undefined>();
   const [documentSizeError, setDocumentSizeError] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
   };
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm();
-  const methods = useForm({});
-  const saveData = (data: any) => {
-    console.log("data", data);
-    console.log("selectFile", selectFile);
+
+  const saveData = async (data: any) => {
+    const formData = {
+      ...data,
+      file: selectFile?.base64,
+      fileName: selectFile?.file.name,
+      fileType: selectFile?.file.type,
+      title: title,
+    };
+    try {
+      await sendEnquiryForm(formData);
+      toast.success("Form submitted successfully");
+      methods.reset();
+      setSelectFile(undefined);
+    } catch (error) {
+      console.error("Error submitting form", error);
+    }
   };
   const handleChange = (event: any) => {
     const file = event?.target?.files?.[0];
@@ -38,6 +53,17 @@ export default function EnquireFormComponent({ title, setOpen, id }: any) {
     if (!file) {
       return;
     }
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      // Convert image to Base64 string
+      if (reader.result) {
+        setSelectFile({
+          file: event?.target?.files?.[0],
+          base64: reader.result.toString(),
+        });
+      }
+    };
 
     // Check the image size
     const fileSizeInMB = file.size / (1024 * 1024); // Convert bytes to megabytes
@@ -47,6 +73,7 @@ export default function EnquireFormComponent({ title, setOpen, id }: any) {
     }
     setDocumentSizeError(false);
     setSelectFile(event?.target?.files?.[0]);
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -54,6 +81,18 @@ export default function EnquireFormComponent({ title, setOpen, id }: any) {
       <Container>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(saveData)} method="post">
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              pauseOnHover
+              draggable
+              draggablePercent={60}
+              closeButton={false}
+              style={{ zIndex: 9999 }}
+            />
             <Box
               sx={{
                 backgroundColor: "white",
@@ -102,7 +141,7 @@ export default function EnquireFormComponent({ title, setOpen, id }: any) {
                       variant="outlined"
                       label="Mobile Number"
                       size="small"
-                      iName="Mobile Number"
+                      iName="Phone"
                       type="tel"
                       required={true}
                       maxLength={10}
@@ -126,7 +165,7 @@ export default function EnquireFormComponent({ title, setOpen, id }: any) {
                       variant="outlined"
                       label="pinCode"
                       size="small"
-                      iName="pinCode"
+                      iName="PinCode"
                       type="number"
                       required={true}
                       maxLength={6}

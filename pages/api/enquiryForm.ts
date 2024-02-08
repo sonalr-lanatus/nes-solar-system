@@ -1,13 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { transporter } from "../../src/config/nodemailer";
 
-interface ContactMessageData {
-  Address: string;
-  Details: string;
-  Email: string;
-  Name: string;
+interface EnquiryMessageData {
   Phone: number;
+  PinCode: Number;
   file: string;
+  title: string;
 }
 
 interface EmailContent {
@@ -15,20 +13,18 @@ interface EmailContent {
   html: string;
 }
 
-const CONTACT_MESSAGE_FIELDS: Record<keyof ContactMessageData, string> = {
-  Address: "Address",
-  Details: "Details",
-  Email: "Email",
-  Name: "Name",
+const CONTACT_MESSAGE_FIELDS: Record<keyof EnquiryMessageData, string> = {
   Phone: "Phone",
+  PinCode: "PinCode",
   file: "file",
+  title: "title",
 };
 
-const generateEmailContent = (data: ContactMessageData): EmailContent => {
+const generateEmailContent = (data: EnquiryMessageData): EmailContent => {
   const stringData = Object.entries(data).reduce(
     (str, [key, val]) =>
       (str += `${
-        CONTACT_MESSAGE_FIELDS[key as keyof ContactMessageData]
+        CONTACT_MESSAGE_FIELDS[key as keyof EnquiryMessageData]
       }: \n${val} \n \n`),
     ""
   );
@@ -40,7 +36,7 @@ const generateEmailContent = (data: ContactMessageData): EmailContent => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact Form Inquiry</title>
+        
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -75,28 +71,16 @@ const generateEmailContent = (data: ContactMessageData): EmailContent => {
     </head>
     <body>
         <div class="container">
-            <h2>Contact Form Inquiry</h2>
+            <h2>${data.title} Enquiry</h2>
             <p>A new inquiry has been submitted through the contact form:</p>
             <table>
-                <tr>
-                    <th>Name:</th>
-                    <td>${data.Name}</td>
-                </tr>
-                <tr>
-                    <th>Email:</th>
-                    <td>${data.Email}</td>
-                </tr>
                 <tr>
                     <th>Phone Number:</th>
                     <td>${data.Phone}</td>
                 </tr>
                 <tr>
-                    <th>Address:</th>
-                    <td>${data.Address}</td>
-                </tr>
-                <tr>
-                    <th>Details:</th>
-                    <td>${data.Details}</td>
+                    <th>PinCode:</th>
+                    <td>${data.PinCode}</td>
                 </tr>
             </table>
             <p>Please respond to the inquiry as soon as possible.</p>
@@ -110,20 +94,13 @@ const generateEmailContent = (data: ContactMessageData): EmailContent => {
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const data = req.body;
 
-  if (
-    !data ||
-    !data.Name ||
-    !data.Email ||
-    !data.Details ||
-    !data.Address ||
-    !data.file
-  ) {
+  if (!data || !data.file) {
     return res.status(400).send({ message: "Bad request" });
   }
   const mailOptions = {
     from: process.env.EMAIL,
     to: process.env.EMAIL,
-    subject: "Contact Enquiry",
+    subject: `${data.title} Enquiry`,
     attachments: [
       {
         filename: data.fileName,

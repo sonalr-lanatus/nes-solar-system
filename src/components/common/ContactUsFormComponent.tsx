@@ -7,7 +7,7 @@ import FileUploadInput from "./FileUploadInput";
 import { sendContactForm } from "../../lib/api";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { GlobalContext } from "@/context/GlobalContextProvider";
+
 type SelectFileType = {
   base64: string;
   file: File;
@@ -113,12 +113,12 @@ export default function ContactUsFormComponent() {
                       label="Phone"
                       size="small"
                       iName="Phone"
-                      type="tel"
                       required={true}
                       maxLength={10}
                       patternInput={"[0-9]*"}
                       inputMode={"numeric"}
                     />
+
                     <div className="invalid-feedback"></div>
                   </div>
                 </div>
