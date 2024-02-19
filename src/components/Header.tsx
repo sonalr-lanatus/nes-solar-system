@@ -10,6 +10,8 @@ import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
 import Link from "next/link";
 import { GlobalContext } from "../context/GlobalContextProvider";
+import { ListItemIcon } from "@mui/material";
+import InfoIcon from "@mui/icons-material/Info";
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -92,6 +94,19 @@ function Header() {
                       sx={{ fontWeight: "500" }}
                       primary="Contact us"
                     />
+                  </Link>
+                </ListItemButton>
+                <ListItemButton>
+                  <Link href="/Projects">
+                    <ListItemText
+                      sx={{ fontWeight: "500" }}
+                      primary="Gallery"
+                    />
+                  </Link>
+                </ListItemButton>
+                <ListItemButton>
+                  <Link href="/Awards">
+                    <ListItemText sx={{ fontWeight: "500" }} primary="Awards" />
                   </Link>
                 </ListItemButton>
               </Box>

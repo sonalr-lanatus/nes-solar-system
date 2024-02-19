@@ -7,6 +7,7 @@ import "../pages/OurTeam/OurTeam.css";
 import "../pages/Projects/Projects.css";
 import "../pages/Projects/CivilWork/CivilWork.css";
 import "../pages/Awards/Awards.css";
+import "../src/components/ProductSection/ProductSection.css";
 import RootLayout from "@/components/Layout";
 import GlobalContextProvider from "@/context/GlobalContextProvider";
 export default function App({ Component, pageProps }: AppProps) {

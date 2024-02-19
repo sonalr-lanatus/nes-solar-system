@@ -10,13 +10,16 @@ import Marquee from "react-fast-marquee";
 import { imageData } from "../data/About/ImageData";
 import { imageData2 } from "../data/About/ImageData2";
 import { GlobalContext } from "../context/GlobalContextProvider";
+import ProjectSection from "./ProductSection/ProductSection";
+import LandingAboutSection from "./LandingAboutSection/LandingAboutSection";
+import LandingExpertiseSection from "./LandingExpertiseSection";
 
 const TILES = [
   "Residence Solar",
   "Non-Residence Solar",
-  "Wind Solar Hybrid",
-  "Cleaning System",
+  "Automatic Robotic Cleaning System",
   "O & M",
+  "Wind Solar Hybrid",
 ];
 
 function Hero() {
@@ -117,25 +120,23 @@ function Hero() {
                 stickyHeader ? "md:mt-20 max-sm:mt-52" : "md:-mt-3"
               }`}
             >
-              {tiles.map(
-                (tile) =>
-                  // eslint-disable-next-line react/jsx-key
-                  !tile.hidden && (
-                    <button
-                      key={tile.label}
-                      onClick={(e) => {
-                        toggleDrawer(true, e);
-                      }}
-                      className="w-44 h-24  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
-                    >
-                      <div className="px-4 py-6 w-44">
-                        <p className="text-lg text-center font-bold text-[#203F69] block capitalize">
-                          {tile.label}
-                        </p>
-                      </div>
-                    </button>
-                  )
-              )}
+              {tiles.map((tile) => (
+                // eslint-disable-next-line react/jsx-key
+                <button
+                  key={tile.label}
+                  onClick={(e) => {
+                    toggleDrawer(true, e);
+                  }}
+                  className="w-44 h-28  bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
+                  style={{ display: tile.hidden ? "none" : "block" }}
+                >
+                  <div className="px-4 pt-3 pb-3 w-44">
+                    <p className="text-lg text-center font-bold text-[#203F69] block capitalize">
+                      {tile.label}
+                    </p>
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
           {open ? (
@@ -147,13 +148,19 @@ function Hero() {
           )}
         </div>
       </section>
+      <ProjectSection />
       <div className="pt-3">
         <CounterSection />
       </div>
-      <div className="brand-wrapper gradient-bg pt-12">
-        <div className=" mb-14 text-center">
+      <LandingAboutSection />
+      <LandingExpertiseSection />
+      <div className="brand-wrapper gradient-bg pt-12 bg-[#edf0f3]">
+        <div className="mb-14 text-center">
           <h2 className="text-4xl">
-            <span className="text-line" style={{ color: "black" }}>
+            <span
+              className="text-line"
+              style={{ color: "black", fontWeight: "normal" }}
+            >
               Our{" "}
               <span
                 className="text-bold"
@@ -163,6 +170,10 @@ function Hero() {
               </span>
             </span>
           </h2>
+          <p className="fa_tt_span">
+            <span></span>
+            <span></span>
+          </p>
         </div>
         <div className="Marquee">
           <Marquee

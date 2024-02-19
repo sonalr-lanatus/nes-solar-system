@@ -1,10 +1,17 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import { Html, Head, Main, NextScript } from "next/document";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 
 export default function Document() {
   return (
     <Html>
       <Head>
+        <Script
+          src="https://cdn.jsdelivr.net/npm/tsparticles@1.9.2/dist/tsparticles.min.js"
+          integrity="sha256-5kED68Spy7K2CEbfu4CjV92DmZR5ZQFUoIR5qmPzZWg="
+          crossOrigin="anonymous"
+        ></Script>
         <script>
           <script
             async
@@ -40,6 +47,8 @@ export default function Document() {
         <NextScript />
         <GoogleTagManager gtmId="G-7NNJFP05M4" />{" "}
         <GoogleAnalytics gaId="G-7NNJFP05M4" />
+        <script src="../sample.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.18.3/dist/tsparticles.min.js"></script>
       </body>
     </Html>
   );

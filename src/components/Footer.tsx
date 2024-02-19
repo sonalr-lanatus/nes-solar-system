@@ -349,9 +349,9 @@ export default function Footer() {
                         />
                       </svg>
 
-                      <address className="-mt-0.5 flex-1 not-italic font-white text-justify">
-                        1/A Shambhupark Society , Nr. Vijayanagar School Rly.
-                        Crossing Kiranpark, Nava Vadaj, Ahmedabad , 380013
+                      <address className="-mt-0.5 flex-1 not-italic font-white">
+                        1/A Shambhupark Society ,Nr. Vijayanagar School Rly.
+                        Crossing Kiranpark,Nava Vadaj, Ahmadabad,380013
                       </address>
                     </a>
                   </li>
