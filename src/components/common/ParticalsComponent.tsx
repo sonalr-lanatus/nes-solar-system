@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Particles from "particles.js";
 
 const ParticlesComponent: React.FC = () => {
   useEffect(() => {
