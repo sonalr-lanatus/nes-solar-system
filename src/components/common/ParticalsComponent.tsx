@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    particlesJS: any; // Adjust the type as per your usage
+  }
+}
+
 import React, { useEffect } from "react";
 
 const ParticlesComponent: React.FC = () => {

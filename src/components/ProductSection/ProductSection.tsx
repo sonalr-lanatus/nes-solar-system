@@ -122,9 +122,9 @@ export default function ProjectSection() {
                           <div className="e_image-90 s_img fa_Img fa_Imgmax">
                             <a href="" target="_self">
                               <img
-                                src="https://omo-oss-image.thefastimg.com/portal-saas/new2022091509465100264/cms/image/814d46d8-6ada-40eb-963d-8b8e0c805235.png"
-                                alt="2P Automatic Cleaning Robot"
-                                title="2P Automatic Cleaning Robot"
+                                src="/assets/prducts/IMG_20240116_155052.jpg"
+                                alt="Ground mounted solar panel cleaning robot"
+                                title="Ground mounted solar panel cleaning robot"
                               />
                             </a>
                           </div>
@@ -227,7 +227,7 @@ export default function ProjectSection() {
                           >
                             <div className="cbox-91 fa_li">
                               <p className="e_text-93 s_title response-transition">
-                                2P Automatic Cleaning Robot
+                                Ground mounted solar panel cleaning robot
                               </p>
                               <p className="e_text-94 s_title response-transition">
                                 ·Fully automatic water free cleaning, with
