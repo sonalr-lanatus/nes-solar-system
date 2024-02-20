@@ -1,7 +1,22 @@
+declare global {
+  interface Window {
+    particlesJS: any; // Adjust the type as per your usage
+  }
+}
+declare namespace JSX {
+  interface IntrinsicElements {
+    "ion-icon": any; // You can replace 'any' with appropriate type if known
+  }
+}
 import React, { useEffect, useRef } from "react";
 import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 import "swiper/bundle";
+import ParticlesComponent from "../common/ParticalsComponent";
+
+import type { Engine } from "@tsparticles/engine";
+import { loadFull } from "tsparticles";
+import Link from "next/link";
 export default function LandingAboutSection() {
   const swiperRef = useRef<Swiper | null>(null);
 
@@ -32,6 +47,144 @@ export default function LandingAboutSection() {
       }
     };
   }, []);
+  useEffect(() => {
+    // Initialize Swiper
+    const swiper = new Swiper(".swiperProject", {
+      effect: "cube",
+      grabCursor: true,
+      loop: true,
+      speed: 1000,
+      cubeEffect: {
+        shadow: false,
+        slideShadows: true,
+        shadowOffset: 10,
+        shadowScale: 0.94,
+      },
+      autoplay: {
+        delay: 2600,
+        pauseOnMouseEnter: true,
+      },
+    });
+
+    // Initialize tsParticles
+    // tsParticles.loadFull("particles-js-service", {
+    //   fpsLimit: 60,
+    //   backgroundMode: {
+    //     enable: true,
+    //     zIndex: -1,
+    //   },
+    //   particles: {
+    //     number: {
+    //       value: 30,
+    //       density: {
+    //         enable: true,
+    //         area: 800,
+    //       },
+    //     },
+    //     color: {
+    //       value: [
+    //         "#3998D0",
+    //         "#2EB6AF",
+    //         "#A9BD33",
+    //         "#FEC73B",
+    //         "#F89930",
+    //         "#F45623",
+    //         "#D62E32",
+    //       ],
+    //     },
+    //     destroy: {
+    //       mode: "split",
+    //       split: {
+    //         count: 1,
+    //         factor: {
+    //           value: 5,
+    //           random: {
+    //             enable: true,
+    //             minimumValue: 4,
+    //           },
+    //         },
+    //         rate: {
+    //           value: 10,
+    //           random: {
+    //             enable: true,
+    //             minimumValue: 5,
+    //           },
+    //         },
+    //         particles: {
+    //           collisions: {
+    //             enable: false,
+    //           },
+    //           destroy: {
+    //             mode: "none",
+    //           },
+    //           life: {
+    //             count: 1,
+    //             duration: {
+    //               value: 1,
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //     shape: {
+    //       type: "circle",
+    //       stroke: {
+    //         width: 0,
+    //         color: "#000000",
+    //       },
+    //       polygon: {
+    //         sides: 5,
+    //       },
+    //     },
+    //     opacity: {
+    //       value: 1,
+    //       random: false,
+    //       animation: {
+    //         enable: false,
+    //         speed: 1,
+    //         minimumValue: 0.1,
+    //         sync: false,
+    //       },
+    //     },
+    //     size: {
+    //       value: 8,
+    //       random: {
+    //         enable: true,
+    //         minimumValue: 4,
+    //       },
+    //       animation: {
+    //         enable: false,
+    //         speed: 40,
+    //         minimumValue: 0.1,
+    //         sync: false,
+    //       },
+    //     },
+    //     collisions: {
+    //       enable: true,
+    //       mode: "destroy",
+    //     },
+    //     move: {
+    //       enable: true,
+    //       speed: 7,
+    //       direction: "none",
+    //       random: false,
+    //       straight: false,
+    //       out_mode: "out",
+    //       attract: {
+    //         enable: false,
+    //         rotateX: 600,
+    //         rotateY: 1200,
+    //       },
+    //     },
+    //   },
+    //   detectRetina: true,
+    // });
+
+    // Clean up function
+    return () => {
+      swiper.destroy(); // Destroy Swiper instance
+    };
+  }, []); // Empty dependency array to run only once on component mount
   return (
     <div>
       <div id="c_static_001-16613924005290" className="response-animated">
@@ -50,6 +203,7 @@ export default function LandingAboutSection() {
                     </p>
                   </div>
                 </div>
+
                 <div className="e_richText-87 s_title clearfix response-transition">
                   <p style={{ fontSize: "14px", lineHeight: "24px" }}>
                     <span style={{ color: "#696969" }}>
@@ -78,7 +232,8 @@ export default function LandingAboutSection() {
                     </span>
                   </p>
                 </div>
-                <div className="e_loop-88 s_list" ds-id="" elem-id="e_loop-88">
+                <ParticlesComponent />
+                {/* <div className="e_loop-88 s_list" ds-id="" elem-id="e_loop-88">
                   <div className="">
                     <div className="p_list fa_flexwrap fa_flex_between">
                       <div className="cbox-88 p_loopitem fa_li ">
@@ -176,7 +331,7 @@ export default function LandingAboutSection() {
                     name="i18nJson"
                     value='{"noMore_88":"No more","pageItem_88":"picecs","pageWhole_88":"in total","loadMore_88":"Click to load more","loadNow_88":"Loading","pageUnit_88":"page","pageJump_88":"proceed","noData_88":"No data"}'
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -197,7 +352,7 @@ export default function LandingAboutSection() {
         />
       </div>
       <div id="c_static_001-16662559417920" className="response-animated mt-4">
-        <div className="e_container-1 s_layout">
+        {/* <div className="e_container-1 s_layout">
           <div className="cbox-1-0 p_item">
             <div className="e_container-81 s_layout fa_text_c">
               <div className="cbox-81-0 p_item">
@@ -281,8 +436,8 @@ export default function LandingAboutSection() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="e_loop-76 s_list response-transition">
+        </div> */}
+        {/* <div className="e_loop-76 s_list response-transition">
           <div className="">
             <div className="fa_hproswp1">
               <div className="swiper swiper-container-initialized swiper-container-horizontal">
@@ -657,6 +812,179 @@ export default function LandingAboutSection() {
                         title=""
                       />
                     </i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
+        <div className="project">
+          {" "}
+          <div
+            id="tsparticles"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+            }}
+          ></div>
+          <div className="section">
+            <div className="content">
+              <h1>Our Projects</h1>
+              <p>
+                Solar projects represent a sustainable and scalable solution to
+                meet growing energy demand, combat climate change, and drive
+                economic prosperity. With ongoing technological advancements,
+                policy support, and public awareness, solar energy continues to
+                play a vital role in the global transition to a clean energy
+                future.
+              </p>
+              <Link href="/Projects">
+                <button>Explore Our Projects</button>
+              </Link>
+            </div>
+
+            <div className="swiperProject">
+              <div className="swiper-wrapper">
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/Mounting structure Installation/iStock-1183024863.jpg" />
+
+                  <div className="overlay">
+                    <h1>Mounting structure Installation</h1>
+                    <p>
+                      Mounting structures provide the necessary support and
+                      orientation for solar panels. They are typically installed
+                      on rooftops, ground surfaces, or specialized solar
+                      tracking systems.
+                    </p>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/civil work/IMG-20170819-WA0004.jpg" />
+
+                  <div className="overlay">
+                    <h1>Civil Work</h1>
+                    <p>
+                      Civil work in solar projects involves the design,
+                      construction, and preparation of the site where solar
+                      panels and related equipment will be installed.
+                    </p>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/cleaning system/dsc04663.jpg" />
+
+                  <div className="overlay">
+                    <h1>Cleaning System</h1>
+                    <p>
+                      Solar panel cleaning systems are designed to remove dirt,
+                      dust, pollen, bird droppings, and other debris from the
+                      surface of solar panels to maintain their efficiency and
+                      performance over time.
+                    </p>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/Rooftop solar installations/iStock-1222813488.jpg" />
+
+                  <div className="overlay">
+                    <h1>RoofTop Solar Installations</h1>
+                    <p>
+                      Rooftop solar refers to the installation of solar
+                      photovoltaic (PV) panels on the rooftops of residential,
+                      commercial, or industrial buildings to harness solar
+                      energy for electricity generation.
+                    </p>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/electrical work/projects-40920220123.jpg" />
+
+                  <div className="overlay">
+                    <h1>Electrical Work</h1>
+                    <p>
+                      Electrical work in rooftop solar projects involves the
+                      installation, wiring, and connection of solar panels,
+                      inverters, meters, and other electrical components to the
+                      building electrical system.
+                    </p>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/cleaning system/dsc04657.jpg" />
+
+                  <div className="overlay">
+                    <h1>Cleaning System</h1>
+                    <p>
+                      Embark on a magical journey through Tokyo by discovering
+                      the beauty of the city as cherry blossom trees paint the
+                      streets in hues of pink.
+                    </p>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/Mounting structure Installation/DSC03787.jpg" />
+
+                  <div className="overlay">
+                    <h1>Mounting Structure Installation</h1>
+                    <p>
+                      Mounting structures provide the necessary support and
+                      orientation for solar panels. They are typically installed
+                      on rooftops, ground surfaces, or specialized solar
+                      tracking systems.
+                    </p>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/Rooftop solar installations/20201231_125237.jpg" />
+
+                  <div className="overlay">
+                    <h1>RoofTop Solar Installations</h1>
+                    <p>
+                      Rooftop solar refers to the installation of solar
+                      photovoltaic (PV) panels on the rooftops of residential,
+                      commercial, or industrial buildings to harness solar
+                      energy for electricity generation.
+                    </p>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/cleaning system/dsc04647.jpg" />
+
+                  <div className="overlay">
+                    <h1>Cleaning System</h1>
+                    <p>
+                      Embark on a magical journey through Tokyo by discovering
+                      the beauty of the city as cherry blossom trees paint the
+                      streets in hues of pink.
+                    </p>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/electrical work/projects-multi-image-23120220123.jpg" />
+
+                  <div className="overlay">
+                    <h1>Electrical Work</h1>
+                    <p>
+                      Electrical work in rooftop solar projects involves the
+                      installation, wiring, and connection of solar panels,
+                      inverters, meters, and other electrical components to the
+                      building electrical system.
+                    </p>
+                  </div>
+                </div>
+                <div className="swiper-slide">
+                  <img src="/assets/Projects/civil work/IMG-20170819-WA0003.jpg" />
+
+                  <div className="overlay">
+                    <h1>Civil Work</h1>
+                    <p>
+                      Civil work in solar projects involves the design,
+                      construction, and preparation of the site where solar
+                      panels and related equipment will be installed.
+                    </p>
                   </div>
                 </div>
               </div>

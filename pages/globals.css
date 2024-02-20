@@ -1458,3 +1458,12 @@ label {
 .custom-toast {
   z-index: 270;
 }
+.particles2 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  max-width: 500px;
+  height: 70%;
+  max-height: 500px;
+}

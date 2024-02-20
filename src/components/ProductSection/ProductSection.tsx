@@ -1,3 +1,13 @@
+declare global {
+  interface Window {
+    particlesJS: any; // Adjust the type as per your usage
+  }
+}
+declare namespace JSX {
+  interface IntrinsicElements {
+    "ion-icon": any; // You can replace 'any' with appropriate type if known
+  }
+}
 import Script from "next/script";
 import React, { useEffect, useRef, useState } from "react";
 import Swiper from "swiper";

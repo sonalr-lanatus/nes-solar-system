@@ -43,7 +43,7 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.1",
     "swiper": "^11.0.6",
-    "tsparticles": "^3.2.1"
+    "tsparticles": "^3.2.2"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
